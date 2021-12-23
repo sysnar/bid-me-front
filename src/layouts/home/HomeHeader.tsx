@@ -23,9 +23,7 @@ function HomeHeader() {
           {/* <a className="mr-5 hover:text-gray-900">First Link</a>
           <a className="mr-5 hover:text-gray-900">Second Link</a>
           <a className="mr-5 hover:text-gray-900">Third Link</a> */}
-          <Link to="/signup">
-            <a className="mr-5 hover:text-gray-900">회원가입</a>
-          </Link>
+          <a className="mr-5 hover:text-gray-900">회원가입</a>
         </nav>
         <Link to="/login">
           <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">

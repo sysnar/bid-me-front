@@ -1,7 +1,7 @@
-import LoginBtn from "../components/LoginBtn";
+import ConfirmBtn from "../components/ConfirmBtn";
 import { WrapperProps } from "../utils/wrapper.interface";
 
-export function LoginPage() {
+export function SignUpPage() {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center justify-center">
@@ -15,11 +15,11 @@ export function LoginPage() {
           </p>
         </div> */}
         <div className="lg:w-3/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col  w-full mt-10 md:mt-0">
-          <LoginHeading>회원가입</LoginHeading>
-          <LoginInput label="아이디" placeholer="아이디를 입력해주세요." />
-          <LoginInput label="Email" placeholer="Email을 입력해주세요." />
-          <LoginInput label="비밀번호" placeholer="비밀번호를 입력해주세요." />
-          <LoginBtn btnName="확인" />
+          <SignHeading>회원가입</SignHeading>
+          <SignInput label="아이디" placeholer="아이디를 입력해주세요." />
+          <SignInput label="Email" placeholer="Email을 입력해주세요." />
+          <SignInput label="비밀번호" placeholer="비밀번호를 입력해주세요." />
+          <ConfirmBtn btnName="확인" />
           <p className="text-xs text-gray-500 mt-3">
             Literally you probably haven't heard of them jean shorts.
           </p>
@@ -29,7 +29,7 @@ export function LoginPage() {
   );
 }
 
-function LoginHeading({ children }: WrapperProps) {
+function SignHeading({ children }: WrapperProps) {
   return (
     <h2 className="text-gray-900 text-2xl font-medium title-font mb-5">
       {children}
@@ -37,7 +37,7 @@ function LoginHeading({ children }: WrapperProps) {
   );
 }
 
-function LoginInput(porps: any) {
+function SignInput(porps: any) {
   const { label, placeholer } = porps;
   return (
     <div className="relative mb-4">
@@ -55,4 +55,4 @@ function LoginInput(porps: any) {
   );
 }
 
-export default LoginPage;
+export default SignUpPage;

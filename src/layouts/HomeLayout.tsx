@@ -1,23 +1,27 @@
 import { ReactChild } from "react";
+import { Outlet } from "react-router-dom";
+import { WrapperProps } from "../utils/wrapper.interface";
 import HomeFooter from "./home/HomeFooter";
 import HomeHeader from "./home/HomeHeader";
-import HomeMain from "./home/HomeMain";
 
 function HomeLayout() {
   return (
     <HomeWrapper>
       <HomeHeader />
-      <HomeMain />
+      <MainWrapper>
+        <Outlet />
+      </MainWrapper>
       <HomeFooter />
     </HomeWrapper>
   );
 }
 
-interface WrapperProps {
-  children: ReactChild | ReactChild[];
-}
 function HomeWrapper({ children }: WrapperProps) {
   return <div className="min-h-screen flex flex-col">{children}</div>;
+}
+
+function MainWrapper({ children }: WrapperProps) {
+  return <div className="flex flex-1 flex-col">{children}</div>;
 }
 
 export default HomeLayout;

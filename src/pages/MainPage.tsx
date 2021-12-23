@@ -40,7 +40,8 @@ function MainPage() {
                     회원가입!
                   </h2>
                   <p className="leading-relaxed">
-                    회원가입으로 입찰공고에 필요한 정보를 제공받으세요!
+                    회원가입으로 입찰공고에 <br />
+                    필요한 정보를 제공받으세요!
                   </p>
                   <a className="mt-3 text-indigo-500 inline-flex items-center">
                     회원가입하기
@@ -71,7 +72,7 @@ function MainPage() {
                     로그인
                   </h2>
                   <p className="leading-relaxed">
-                    관심있는 입찰공고를 등록하고 <br /> 꼭 필요한 정보만
+                    관심있는 입찰공고 등록하고 <br /> 필요한 정보만
                     전달받으세요!
                   </p>
                   <a className="mt-3 text-indigo-500 inline-flex items-center">

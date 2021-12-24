@@ -1,30 +1,19 @@
+import { SearchButton } from "../components/SearchMenu";
+
 function MainPage() {
+  const onSubmit = (event: any) => {
+    if (event.key === "Enter") {
+      console.log(1234);
+    }
+  };
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-wrap">
         <div className="lg:w-2/3 mx-auto">
-          <div className="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
+          <div className="flex flex-wrap w-full bg-gray-100 py-28 px-10 relative mb-4">
             <div className="text-center relative z-10 w-full">
-              <h2 className="text-2xl text-gray-900 font-medium title-font mb-2">
-                Main Block for Search
-              </h2>
-              <p className="leading-relaxed">
-                필요한 일찰공고를 간편하게 검색하세요!
-              </p>
-              <a className="mt-3 text-indigo-500 inline-flex items-center">
-                버튼 추가 필요
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
+              <SearchButton onKeyPress={onSubmit} />
             </div>
           </div>
           <div className="flex flex-wrap -mx-2">

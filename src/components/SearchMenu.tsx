@@ -1,11 +1,13 @@
 import { WrapperProps } from "../utils/wrapper.interface";
+import tw from "twin.macro";
+import styled from "@emotion/styled/macro";
 
-export function SearchButton({ onKeyPress }: any) {
+export function SearchBanner({ onKeyPress }: any) {
   return (
     <SearchMenuWrapper>
-      <SearchMenuTitle />
+      <SearchMenuTitle>필요한 입찰공고를 간편하게 검색하세요!</SearchMenuTitle>
       <SearchMenuInput onKeyPress={onKeyPress} />
-      <SearchMenuBottom />
+      <SearchMenuBottom>가장 쉬운 입찰공고 검색 </SearchMenuBottom>
     </SearchMenuWrapper>
   );
 }
@@ -20,13 +22,9 @@ function SearchMenuWrapper({ children }: WrapperProps) {
   );
 }
 
-function SearchMenuTitle() {
-  return (
-    <h1 className="title-font sm:text-4xl text-3xl mb-12 font-medium text-gray-900">
-      필요한 입찰공고를 간편하게 검색하세요!
-    </h1>
-  );
-}
+const SearchMenuTitle = styled.div([
+  tw`sm:text-4xl text-3xl mb-12 font-medium text-gray-900`,
+]);
 
 function SearchMenuInput({ onKeyPress }: any) {
   return (
@@ -67,8 +65,4 @@ function SearchMenuInput({ onKeyPress }: any) {
   );
 }
 
-function SearchMenuBottom() {
-  return (
-    <p className="text-sm mt-2 text-gray-500 w-full">가장 쉬운 입찰공고 검색</p>
-  );
-}
+const SearchMenuBottom = styled.p([tw`text-sm mt-2 text-gray-500 w-full`]);

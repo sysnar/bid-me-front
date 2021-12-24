@@ -1,9 +1,12 @@
-import { SearchButton } from "../components/SearchMenu";
+import { useNavigate } from "react-router-dom";
+import { SearchBanner } from "../components/SearchMenu";
 
 function MainPage() {
+  const navigate = useNavigate();
   const onSubmit = (event: any) => {
     if (event.key === "Enter") {
-      console.log(1234);
+      const keyword = event.target.value;
+      navigate(`/search/${keyword}`);
     }
   };
 
@@ -13,7 +16,7 @@ function MainPage() {
         <div className="lg:w-2/3 mx-auto">
           <div className="flex flex-wrap w-full bg-gray-100 py-28 px-10 relative mb-4">
             <div className="text-center relative z-10 w-full">
-              <SearchButton onKeyPress={onSubmit} />
+              <SearchBanner onKeyPress={onSubmit} />
             </div>
           </div>
           <div className="flex flex-wrap -mx-2">

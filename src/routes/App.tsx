@@ -7,6 +7,7 @@ import SignUpPage from "../pages/SignUpPage";
 import LoginPage from "../pages/LoginPage";
 import OfficeLayout from "../layouts/OfficeLayout";
 import OfficePage from "../pages/OfficePage";
+import SearchPage from "../pages/SearchPage";
 
 function App() {
   return (
@@ -15,11 +16,13 @@ function App() {
         <Route index element={<MainPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignUpPage />} />
+        <Route path="search/:keyword" element={<SearchPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/office" element={<OfficeLayout />}>
         <Route index element={<OfficePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

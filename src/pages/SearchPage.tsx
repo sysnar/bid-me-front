@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import tw from "twin.macro";
 import { Container } from "../components/Container";
@@ -7,19 +9,26 @@ import { SearchResult2 } from "../components/SearchResult2";
 
 export default function SearchPage() {
   const { keyword } = useParams();
-  console.log(keyword);
+  const [bid, setBid] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/bid/${keyword}`)
+      .then((response) => setBid(response.data));
+  }, []);
+
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <Container>
         <SearchTitleWrapper>
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+          <h1 className="sm:text-5xl text-2xl font-bold title-font mb-4 text-gray-700 ">
             검색결과
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             검색 키워드 : {keyword}
           </p>
         </SearchTitleWrapper>
-        <SearchResult2 />
+        <SearchResult2 bidData={bid} />
       </Container>
     </section>
   );

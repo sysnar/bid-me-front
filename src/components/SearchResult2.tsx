@@ -1,31 +1,38 @@
 import styled from "@emotion/styled/macro";
 import tw from "twin.macro";
 
-export function SearchResult2() {
+export function SearchResult2({ bidData }: any) {
   return (
     <BidDataWrapper>
-      <BidData></BidData>
-      <BidData></BidData>
-      <BidData></BidData>
+      {bidData.map((bid: any) => {
+        return <BidData bid={bid} />;
+      })}
     </BidDataWrapper>
   );
 }
 
 const BidDataWrapper = styled.div([tw`flex flex-wrap -m-12`]);
 
-function BidData() {
+function BidData({ bid }: any) {
   return (
     <div className="p-12 md:w-1/2 flex flex-col items-start">
       <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
         입찰공고
       </span>
       <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
-        입찰공고명
+        {bid.bidNtceNm}
       </h2>
-      <p className="leading-relaxed mb-8">입찰공고 상세 설명사항</p>
+      <p className="leading-relaxed mb-8">
+        수요처 : {bid.ntceInsttNm} | 마감일시 : {bid.bidClseDt}
+      </p>
       <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-        <a className="text-indigo-500 inline-flex items-center">
-          홈페이지에서 보기
+        <a
+          className="text-indigo-500 inline-flex items-center"
+          href={bid.bidNtceDtlUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          자세히 보기
           <svg
             className="w-4 h-4 ml-2"
             viewBox="0 0 24 24"

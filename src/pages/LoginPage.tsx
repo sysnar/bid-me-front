@@ -2,8 +2,11 @@ import axios from "axios";
 import { MutableRefObject } from "react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { json } from "stream/consumers";
 import ConfirmBtn from "../components/ConfirmBtn";
 import { SignHeading, SignInput, SignWrapper } from "../components/Sign";
+import { useAuth } from "../utils/auth";
+import Cookies from "js-cookie";
 
 export function LoginPage() {
   const [account, setAccount] = useState({
@@ -12,6 +15,7 @@ export function LoginPage() {
   });
 
   const navigate = useNavigate();
+  const auth = useAuth();
 
   const onChangeAccount = async (event: any) => {
     setAccount({
@@ -28,13 +32,17 @@ export function LoginPage() {
         event.target.name === "submitBtn"
       ) {
         event.preventDefault();
+
         const response = await axios.post(
           "http://localhost:4000/auth/login",
           account
         );
 
         if (response.data.data.accessToken) {
-          navigate(`/office`);
+          auth.signin(response.data.data.accessToken, () => {
+            Cookies.set("Token", response.data.data.accessToken);
+            navigate(`/office`);
+          });
         }
       }
     } catch (error) {
@@ -50,7 +58,7 @@ export function LoginPage() {
         name="name"
         label="아이디"
         placeholer="아이디를 입력해주세요."
-        onChange={onChangeAccount}
+        onChangeAccount={onChangeAccount}
         onSubmitAccount={onSubmitAccount}
       />
       <SignInput
@@ -59,7 +67,7 @@ export function LoginPage() {
         label="비밀번호"
         type="password"
         placeholer="비밀번호를 입력해주세요."
-        onChange={onChangeAccount}
+        onChangeAccount={onChangeAccount}
         onSubmitAccount={onSubmitAccount}
       />
       <ConfirmBtn

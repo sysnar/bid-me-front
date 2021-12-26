@@ -34,7 +34,6 @@ export function SignUpPage() {
           account
         );
 
-        console.log(response.data.statusCode);
         if (response.data.statusCode === "OK") {
           navigate(`/login`);
         }

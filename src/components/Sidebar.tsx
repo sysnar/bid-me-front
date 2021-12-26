@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { WrapperProps } from "../utils/wrapper.interface";
 
 export function SidebarWrapper({ children }: WrapperProps) {
@@ -13,9 +14,9 @@ export function MobileMenu(props: any) {
   return (
     <div className="bg-sidebar text-gray-100 flex justify-between md:hidden">
       {/* logo */}
-      <a href="#" className="block p-4 text-white font-bold">
-        BiD-Me
-      </a>
+      <Link to="/office">
+        <a className="block p-4 text-white font-bold">BiD-Me</a>
+      </Link>
 
       {/* mobile menu button */}
       <button
@@ -57,51 +58,49 @@ export function DesktopWrapper(props: any) {
 
 export function SidebarLogo() {
   return (
-    <a href="#" className="text-white flex items-center space-x-2 px-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-        viewBox="0 0 24 24"
-      >
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-      </svg>
-      <span className="text-2xl font-extrabold">BiD-ME</span>
-    </a>
+    <Link to="/office">
+      <a className="text-white flex items-center space-x-2 px-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span className="text-2xl font-extrabold">BiD-ME</span>
+      </a>
+    </Link>
   );
 }
 
 export function SidebarNavigation() {
   return (
     <nav>
-      <a
-        href=""
-        className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white"
-      >
-        Home
-      </a>
-      <a
-        href=""
-        className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white"
-      >
-        About
-      </a>
-      <a
-        href=""
-        className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white"
-      >
-        Features
-      </a>
-      <a
-        href=""
-        className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white"
-      >
-        Pricing
-      </a>
+      <Link to="/office">
+        <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
+          Home
+        </a>
+      </Link>
+      <Link to="/office">
+        <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
+          About
+        </a>
+      </Link>
+      <Link to="/office">
+        <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
+          Features
+        </a>
+      </Link>
+      <Link to="/office">
+        <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
+          Pricing
+        </a>
+      </Link>
     </nav>
   );
 }

@@ -83,22 +83,22 @@ export function SidebarNavigation() {
     <nav>
       <Link to="/office">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
-          Home
+          메인
         </a>
       </Link>
       <Link to="/office">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
-          About
+          키워드 관리
         </a>
       </Link>
       <Link to="/office">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
-          Features
+          북마크 관리
         </a>
       </Link>
       <Link to="/office">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
-          Pricing
+          회원정보 관리
         </a>
       </Link>
     </nav>

@@ -6,8 +6,9 @@ import {
   SidebarNavigation,
   SidebarWrapper,
 } from "../../components/Sidebar";
+import { WrapperProps } from "../../utils/wrapper.interface";
 
-function OfficeHeader() {
+function OfficeHeader({ children }: WrapperProps) {
   const [isOpen, setSidebar] = useState(true);
   return (
     <SidebarWrapper>
@@ -18,7 +19,7 @@ function OfficeHeader() {
       </DesktopWrapper>
 
       {/* content */}
-      <div className="p-10 text-2xl font-bold">content go es here</div>
+      <div className="w-full h-full min-h-screen">{children}</div>
     </SidebarWrapper>
   );
 }

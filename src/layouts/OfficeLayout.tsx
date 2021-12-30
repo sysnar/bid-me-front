@@ -1,9 +1,12 @@
+import { Outlet } from "react-router-dom";
 import OfficeHeader from "./office/OfficeHeader";
 
 function OfficeLayout() {
   return (
     <>
-      <OfficeHeader></OfficeHeader>
+      <OfficeHeader>
+        <Outlet />
+      </OfficeHeader>
     </>
   );
 }

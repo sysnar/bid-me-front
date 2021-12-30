@@ -65,6 +65,7 @@ export function SignUpPage() {
       <SignInput
         id="password"
         name="password"
+        type="password"
         label="비밀번호"
         placeholer="비밀번호를 입력해주세요."
         onChangeAccount={onChangeAccount}
@@ -73,6 +74,7 @@ export function SignUpPage() {
       <SignInput
         id="passwordChk"
         name="passwordChk"
+        type="password"
         label="비밀번호 확인"
         placeholer="확인할 비밀번호를 입력해주세요."
         onChangeAccount={onChangeAccount}

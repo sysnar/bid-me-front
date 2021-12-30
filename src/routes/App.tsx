@@ -9,6 +9,7 @@ import OfficeLayout from "../layouts/OfficeLayout";
 import OfficePage from "../pages/OfficePage";
 import SearchPage from "../pages/SearchPage";
 import { AuthProvider, RequireAuth } from "../utils/auth";
+import { UserPage } from "../pages/UserPage";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           }
         >
           <Route index element={<OfficePage />} />
-          <Route path="hello" element={<NotFoundPage />} />
+          <Route path="user" element={<UserPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

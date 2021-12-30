@@ -86,17 +86,22 @@ export function SidebarNavigation() {
           메인
         </a>
       </Link>
-      <Link to="/office">
+      <Link to="/office/bid">
+        <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
+          입찰공고 검색
+        </a>
+      </Link>
+      <Link to="/office/keyword">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
           키워드 관리
         </a>
       </Link>
-      <Link to="/office">
+      <Link to="/office/bookmark">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
           북마크 관리
         </a>
       </Link>
-      <Link to="/office">
+      <Link to="/office/user">
         <a className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white">
           회원정보 관리
         </a>

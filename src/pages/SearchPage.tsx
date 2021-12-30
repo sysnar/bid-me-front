@@ -34,6 +34,6 @@ export default function SearchPage() {
   );
 }
 
-const SearchTitleWrapper = styled.div([
+export const SearchTitleWrapper = styled.div([
   tw`flex flex-col text-center w-full mb-12`,
 ]);

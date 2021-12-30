@@ -10,6 +10,9 @@ import OfficePage from "../pages/OfficePage";
 import SearchPage from "../pages/SearchPage";
 import { AuthProvider, RequireAuth } from "../utils/auth";
 import { UserPage } from "../pages/UserPage";
+import { BidPage } from "../pages/BidPage";
+import { KeywordPage } from "../pages/KeywordPage";
+import { BookmarkPage } from "../pages/BookmarkPage";
 
 function App() {
   return (
@@ -32,6 +35,10 @@ function App() {
         >
           <Route index element={<OfficePage />} />
           <Route path="user" element={<UserPage />} />
+          <Route path="bid" element={<BidPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="keyword" element={<KeywordPage />} />
+          <Route path="bookmark" element={<BookmarkPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

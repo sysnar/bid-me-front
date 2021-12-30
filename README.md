@@ -22,10 +22,15 @@
   - Back-End : `Nest.js`, `TypeORM`, `Jest`, `PostgreSQL` 
   - Front-End : `React.js`, Tailwind, Emotion
   - DevOps : AWS EC2, S3, Route53, Cloudwatch, SES, Loadbalancer
+
+## 프로젝트 문서(추진배경, 요구사항 정의서 등)
   
+## API 기능명세서
+https://github.com/sysnar/bid-me-api/wiki
   
-## Back-End 기능 구현사항
-1. 입찰공고 검색 기능 구현
+## 기능 구현사항
+1. 입찰공고 검색 기능 구현  
+  : 사용자가 원하는 입찰공고를 검색하는 기능
 2. 입찰공고 북마크 기능 구현
 3. 관심 키워드 등록 기능 구현
 4. 입찰공고 조회수 기록 기능 구현
@@ -36,14 +41,8 @@
 9. 입찰공보 C.R.U.D 기능구현
 10. AWS 환경의 클라우드 기반 서비스 구축
 
-## Front-End 기능
-1. 사용자가 원하는 입찰공고를 검색하는 기능
-2. 입찰공고를 북마크에 등록하여 지속적인 메일 발송 기능
-3. 등록한 키워드와 관련된 입찰공고의 지속적인 메일 발송 기능
 
 
-## API 기능명세서
-https://github.com/sysnar/bid-me-api/wiki
 
 ## Database ERD
 

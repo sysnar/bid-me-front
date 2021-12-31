@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { WrapperProps } from "../utils/wrapper.interface";
 
 export function SidebarWrapper({ children }: WrapperProps) {
@@ -79,6 +80,9 @@ export function SidebarLogo() {
 }
 
 export function SidebarNavigation() {
+  const Logout = () => {
+    Cookies.remove("Token");
+  };
   return (
     <nav>
       <Link to="/office">
@@ -106,6 +110,13 @@ export function SidebarNavigation() {
           회원정보 관리
         </a>
       </Link>
+      <a
+        className="block py-2.5 px-4 roouded transition duration-200 hover:bg-blue-600 hover:text-white hover:cursor-pointer"
+        href="/"
+        onClick={Logout}
+      >
+        로그아웃
+      </a>
     </nav>
   );
 }

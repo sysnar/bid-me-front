@@ -22,11 +22,6 @@ function MainPage() {
           <div className="flex flex-wrap -mx-2">
             <div className="px-2 w-1/2">
               <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
-                <img
-                  alt="gallery"
-                  className="w-full object-cover h-full object-center block opacity-25 absolute inset-0"
-                  src="https://dummyimage.com/542x460"
-                />
                 <div className="text-center relative z-10 w-full">
                   <h2 className="text-xl text-gray-900 font-medium title-font mb-2">
                     회원가입!
@@ -54,11 +49,6 @@ function MainPage() {
             </div>
             <div className="px-2 w-1/2">
               <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
-                <img
-                  alt="gallery"
-                  className="w-full object-cover h-full object-center block opacity-25 absolute inset-0"
-                  src="https://dummyimage.com/542x420"
-                />
                 <div className="text-center relative z-10 w-full">
                   <h2 className="text-xl text-gray-900 font-medium title-font mb-2">
                     로그인

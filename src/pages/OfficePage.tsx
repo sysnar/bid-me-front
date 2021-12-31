@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { MyResponsiveLine } from "../components/ResponsiveLine";
 
 function OfficePage() {
@@ -5,13 +8,13 @@ function OfficePage() {
     <div className="min-h-screen">
       <div className="flex flex-col ">
         <div className="ml-12 my-4 pt-2 font-bold text-lg">
-          [관심 입찰공고 상위 5개 조회수 변화 추이]
+          [2021년 입찰공고 마감일]
         </div>
         <MyResponsiveLine data={data1} />
       </div>
       <div className="flex flex-row mt-6">
         <KeywordManage />
-        <BidDueday />
+        <BidRandom />
         <KeywordRaking />
       </div>
     </div>
@@ -20,23 +23,47 @@ function OfficePage() {
 export function KeywordManage() {
   return (
     <div className="w-1/3 ml-12 border-2 rounded-lg">
-      <div className="border-b-2 px-4 py-2 font-bold text-lg">
-        키워드 관리 바로가기
-      </div>
+      <Link to="/office/keyword">
+        <div className="border-b-2 px-4 py-2 font-bold text-lg">
+          키워드 관리 바로가기
+        </div>
+        <div className="text-center mt-36">
+          키워드 등록으로 매주 월요일
+          <br />
+          관련된 입찰공고 정보를 제공받으세요!
+        </div>
+      </Link>
     </div>
   );
 }
 
-export function BidDueday() {
+export function BidRandom() {
+  let [bidData, setDidData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:4000/bid/random").then((response) => {
+      setDidData(response.data.data);
+    });
+  }, []);
+
   return (
     <div className="w-1/3 ml-6 border-2 rounded-lg">
       <div className="border-b-2 px-4 py-2 font-bold text-lg">
-        마감예정 입찰공고
+        추천 입찰공고
       </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> ~~~~~~~~~~~~에 대한 입찰공고
-        <div className="ml-auto text-red-600">~ 12/31</div>
-      </div>
+      {bidData.map((data: any, index) => {
+        return (
+          <div className="flex flex-row mx-4 py-4 border-b text-base">
+            <div className="pr-4 font-bold">{index + 1}</div>
+            <a
+              href={data.bidNtceDtlUrl}
+              target="_blank"
+              className="hover:text-blue-600"
+            >
+              {data.bidNtceNm}
+            </a>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -72,272 +99,56 @@ export function KeywordRaking() {
 export default OfficePage;
 const data1 = [
   {
-    id: "japan",
+    id: "입찰 마감 공고수",
     color: "hsl(176, 70%, 50%)",
     data: [
       {
-        x: "plane",
+        x: "1월",
         y: 201,
       },
       {
-        x: "helicopter",
+        x: "2월",
         y: 113,
       },
       {
-        x: "boat",
+        x: "3월",
         y: 55,
       },
       {
-        x: "train",
+        x: "4월",
         y: 38,
       },
       {
-        x: "subway",
+        x: "5월",
         y: 85,
       },
       {
-        x: "bus",
+        x: "6월",
         y: 271,
       },
       {
-        x: "car",
+        x: "7월",
         y: 179,
       },
       {
-        x: "moto",
+        x: "8월",
         y: 11,
       },
       {
-        x: "bicycle",
+        x: "9월",
         y: 132,
       },
       {
-        x: "horse",
+        x: "10월",
         y: 27,
       },
       {
-        x: "skateboard",
+        x: "11월",
         y: 144,
       },
       {
-        x: "others",
+        x: "12월",
         y: 34,
-      },
-    ],
-  },
-  {
-    id: "france",
-    color: "hsl(175, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 151,
-      },
-      {
-        x: "helicopter",
-        y: 134,
-      },
-      {
-        x: "boat",
-        y: 70,
-      },
-      {
-        x: "train",
-        y: 23,
-      },
-      {
-        x: "subway",
-        y: 294,
-      },
-      {
-        x: "bus",
-        y: 74,
-      },
-      {
-        x: "car",
-        y: 258,
-      },
-      {
-        x: "moto",
-        y: 55,
-      },
-      {
-        x: "bicycle",
-        y: 189,
-      },
-      {
-        x: "horse",
-        y: 243,
-      },
-      {
-        x: "skateboard",
-        y: 218,
-      },
-      {
-        x: "others",
-        y: 232,
-      },
-    ],
-  },
-  {
-    id: "us",
-    color: "hsl(277, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 222,
-      },
-      {
-        x: "helicopter",
-        y: 166,
-      },
-      {
-        x: "boat",
-        y: 39,
-      },
-      {
-        x: "train",
-        y: 25,
-      },
-      {
-        x: "subway",
-        y: 118,
-      },
-      {
-        x: "bus",
-        y: 55,
-      },
-      {
-        x: "car",
-        y: 136,
-      },
-      {
-        x: "moto",
-        y: 17,
-      },
-      {
-        x: "bicycle",
-        y: 97,
-      },
-      {
-        x: "horse",
-        y: 296,
-      },
-      {
-        x: "skateboard",
-        y: 9,
-      },
-      {
-        x: "others",
-        y: 155,
-      },
-    ],
-  },
-  {
-    id: "germany",
-    color: "hsl(262, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 285,
-      },
-      {
-        x: "helicopter",
-        y: 34,
-      },
-      {
-        x: "boat",
-        y: 258,
-      },
-      {
-        x: "train",
-        y: 299,
-      },
-      {
-        x: "subway",
-        y: 190,
-      },
-      {
-        x: "bus",
-        y: 11,
-      },
-      {
-        x: "car",
-        y: 110,
-      },
-      {
-        x: "moto",
-        y: 273,
-      },
-      {
-        x: "bicycle",
-        y: 25,
-      },
-      {
-        x: "horse",
-        y: 127,
-      },
-      {
-        x: "skateboard",
-        y: 295,
-      },
-      {
-        x: "others",
-        y: 143,
-      },
-    ],
-  },
-  {
-    id: "norway",
-    color: "hsl(313, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 17,
-      },
-      {
-        x: "helicopter",
-        y: 175,
-      },
-      {
-        x: "boat",
-        y: 254,
-      },
-      {
-        x: "train",
-        y: 171,
-      },
-      {
-        x: "subway",
-        y: 19,
-      },
-      {
-        x: "bus",
-        y: 226,
-      },
-      {
-        x: "car",
-        y: 191,
-      },
-      {
-        x: "moto",
-        y: 254,
-      },
-      {
-        x: "bicycle",
-        y: 192,
-      },
-      {
-        x: "horse",
-        y: 173,
-      },
-      {
-        x: "skateboard",
-        y: 236,
-      },
-      {
-        x: "others",
-        y: 21,
       },
     ],
   },

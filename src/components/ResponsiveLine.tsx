@@ -27,7 +27,7 @@ export const MyResponsiveLine = ({ data }: any) => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "transportation",
+
           legendOffset: 36,
           legendPosition: "middle",
         }}

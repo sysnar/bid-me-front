@@ -36,7 +36,7 @@ function App() {
           <Route index element={<OfficePage />} />
           <Route path="user" element={<UserPage />} />
           <Route path="bid" element={<BidPage />} />
-          <Route path="search" element={<SearchPage />} />
+          <Route path="search/:keyword" element={<SearchPage />} />
           <Route path="keyword" element={<KeywordPage />} />
           <Route path="bookmark" element={<BookmarkPage />} />
           <Route path="*" element={<NotFoundPage />} />

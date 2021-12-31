@@ -15,7 +15,7 @@ function OfficePage() {
       <div className="flex flex-row mt-6">
         <KeywordManage />
         <BidRandom />
-        <KeywordRaking />
+        <BookmarkRaking />
       </div>
     </div>
   );
@@ -68,30 +68,30 @@ export function BidRandom() {
   );
 }
 
-export function KeywordRaking() {
+export function BookmarkRaking() {
+  const [bookmarkRank, setBookmarkRank] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/bookmark/rank").then((response) => {
+      setBookmarkRank(response.data.data);
+    });
+  }, []);
+
   return (
     <div className="w-1/3 ml-6 mr-12 border-2 flex flex-col rounded-lg">
       <div className="border-b-2 px-4 py-2 font-bold text-lg">
-        많이 검색된 키워드 순위
+        많이 등록된 북마크 순위
       </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> 빅데이터
-      </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> 빅데이터
-      </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> 빅데이터
-      </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> 빅데이터
-      </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> 빅데이터
-      </div>
-      <div className="flex flex-row mx-4 py-4 border-b text-base">
-        <div className="pr-4 font-bold">1</div> 빅데이터
-      </div>
+      {bookmarkRank.map((bookmark: any, index) => {
+        return (
+          <div className="flex flex-row mx-4 py-4 border-b text-base">
+            <div className="pr-4 font-bold">{index + 1}</div>
+            {bookmark.bidNtceNm.length > 30
+              ? bookmark.bidNtceNm.substring(0, 30) + "..."
+              : bookmark.bidNtceNm}
+          </div>
+        );
+      })}
     </div>
   );
 }

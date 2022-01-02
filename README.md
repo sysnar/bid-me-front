@@ -45,6 +45,6 @@ https://github.com/sysnar/bid-me-api/wiki
 
 
 ## Database ERD
+![ERD](https://github.com/sysnar/bid-me-api/blob/main/bidmeERD.png)
 
-## 구현화면
 
